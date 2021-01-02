@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        section{
+            border:1px solid black;
+        }
+        #mainwrapper{
+            display:-webkit-box;
+            padding:10px;
+            margin:10px auto;
+            width:700px;
+            height:500px;
+        }
+        #left,#right{
+            margin:10px;
+        }
+        #left{
+            width:200px;
+
+        }
+        #right{
+            text-align:center;
+            width:300px;
+            -webkit-box-flex:1;
+        }
+        details{
+            border:1px solid black;
+            padding:5px;
+            margin-top:5px;
+            font:bold 10px tahoma;
+        }
+        details:nth-child(odd){
+            background-color:lightyellow;
+        }
+            details:nth-child(even) {
+                background-color: lightgray;
+            }
+            input[type="button"]{
+                width:70px;
+                font:bold 10px tahoma;
+                border-radius:10px;
+                padding:10px;
+            }
+            /* video::-webkit-media-controls {
+                 display:none !important;
+            } */
+            video::-webkit-media-controls-enclosure {
+                 display:none !important;
+            }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            // get video element
+            myvideo = document.getElementById('myvideo');
+            // get id for seekbar
+            myseekbar = document.getElementById('myseekbar');
+            // get volume id
+            myvolume = document.getElementById('myvolume');
+            // id for btn play pause
+            playpausebtn = document.getElementById('playpausebtn');
+            
+        });//load end
+        function playpausefun() {
+            // 
+            if (myvideo.paused) {
+                myvideo.play();
+                playpausebtn.value = "Pause";
+                
+               myvideo.addEventListener("timeupdate", function(){
+                myseekbar.value = (myvideo.currentTime * 100) / myvideo.duration;
+               }) 
+                
+                
+                
+            } else {
+                myvideo.pause();
+                playpausebtn.value = "Play";
+            }
+            
+        }
+        
+        function changesizefun(data) {
+            switch( data.value)
+            {
+                case 'small':
+                    myvideo.width = myvideo.height = 200;
+                    break;
+                case 'medium':
+                    myvideo.width = myvideo.height = 250;
+                    break;
+                case 'large':
+                    myvideo.width = myvideo.height = 300;
+                    break;
+                case 'fullscreen':
+                    myvideo.webkitRequestFullScreen();
+                    break;
+            }
+        }
+        function mutefun() {
+            //if (myvideo.muted) {
+            //    myvideo.muted = false;
+            //} else {
+            //    myvideo.muted = true;
+            //}
+             
+            myvideo.muted ^= true;
+        }
+            function loopfun(){
+                //if(myvideo.loop)
+                //{
+                //    myvideo.loop = false;
+                //} else {
+                //    myvideo.loop = true;
+                //}
+                myvideo.loop ^= true;
+            }
+            function changevolumefun() {
+                myvideo.volume = myvolume.value;
+            }
+            function changeseekbarfun() {
+                myvideo.currentTime = myvideo.duration * myseekbar.value / 100;
+            }
+            function forfunction() {
+                myvideo.playbackRate++;
+            }
+            function backfunction() {
+                myvideo.playbackRate--;
+                if(myvideo.playbackRate<1){
+                    myvideo.playbackRate=1;
+                }
+            }
+            function Slowfunction() {
+                myvideo.playbackRate = 0.5;
+            }
+            
+
+    </script>
+</head>
+<body>
+    <!--<video src="video/ww.mp4" controls  autoplay muted/>-->
+    <!--<video>
+        <source src="video/ww.mp4"/>
+        <source src="video/ww.ogv" />
+        <source src="video/ww.webm"/>
+    </video>-->
+
+    <section id="mainwrapper">
+        <section id="left">
+            <details>
+                <summary>Play | Pause</summary>
+                <input type="button" value="Play" id="playpausebtn" onclick="playpausefun();"/>
+            </details>
+            <details>
+                <summary>Screen Sizes</summary>
+                <select onchange="changesizefun(this);">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="fullscreen">FullScreen</option>
+                </select>
+            </details>
+            <details>
+                <summary>Mute | Loop</summary>
+                <input type="checkbox" onchange="mutefun();" />Mute<br/>
+                <input type="checkbox" onchange="loopfun();" />Loop
+            </details>
+            <details>
+                <summary>Volume</summary>
+                <input type="range" min="0" max="1" value="0.5" step="0.1" onchange="changevolumefun();" id="myvolume"/>
+            </details>
+            <details>
+                <summary>SeekBar</summary>
+                <input type="range" min="0" max="100" value="0" step="any" onchange="changeseekbarfun();" id="myseekbar" />
+            </details>
+            <details>
+                <summary>>> | << </summary>
+                <input type="button" value=">>" onclick="forfunction();"/>
+                <input type="button" value="<<" onclick="backfunction();" />
+            </details>
+            <details>
+                <summary>>> SlowMotion << </summary>
+                
+                <input type="button" value="Slow" onclick="Slowfunction();" />
+            </details>
+
+            
+            
+
+
+        </section>
+        <section id="right">
+            <video src="video/1.mp4" id="myvideo" width="250" height="250" >
+                <track label="English" id="sub" kind="subtitles" srclang="en" src="video/1.vtt">
+            </video>
+            <!-- <audio src="audio/lifeforrent.mp3" id="myvideo"  /> -->
+        </section>
+    </section>
+</body>
+</html>

@@ -1,0 +1,269 @@
+/* 
+        @media all and ( orientation : landscape) {
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            
+
+            #mainwrapper {
+                width: 80%;
+                height: 600px;
+                border: 2px solid yellow;
+                padding: 5px;
+                box-shadow: cyan 40px 40px 40px inset, lightcyan -80px -80px 80px inset;
+                    
+                margin: 10px auto;
+                border-radius: 20px;
+                box-sizing: border-box;
+            }
+            #mainwrapper:hover {
+                transform: skew(20deg);
+                animation-duration:2s ;
+            }
+
+            section {
+                width: 500px;
+                height: 550px;
+                border: 3px solid black;
+                border-radius: 10px;
+                box-shadow: greenyellow 80px 80px 80px inset, greenyellow -80px -80px 80px inset;
+                padding: 2px;
+                margin: 20px 10px auto;
+                overflow: auto;
+                resize: both;
+                -webkit-column-count:3;
+                -webkit-column-rule:2px solid red;
+                float: left;
+                text-decoration: underline;
+            }
+            mark{
+                background-color: red;
+            }
+            mark:hover{
+                background-color: yellow;
+            }
+            #rightbox{
+                
+                    width: 500px;
+                    height: 550px;
+                    border: 5px solid blue;
+                    border-radius: 10px;
+                    
+                    box-shadow: cyan 80px 80px 80px inset, cyan -80px -80px 80px inset;
+                    padding: 2px;
+                    margin: 20px 10px auto;
+                    overflow: auto;
+                    resize: both;
+                    
+                   
+                    -webkit-column-rule:2px solid red;
+                    float: left;
+            }
+            img{
+                width: 30%;
+                height: 25%;
+                padding: 8px;
+                
+            }
+        }
+
+
+
+        @media all and ( orientation : portrait) {
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+        } */
+        @media all and ( orientation : landscape) {
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+        
+            
+        
+            #mainwrapper {
+                width: 80%;
+                height: 600px;
+                border: 2px solid yellow;
+                padding: 5px;
+                margin: 10px auto;
+                border-radius: 20px;
+                box-sizing: border-box;
+                box-shadow: #bd79fc 10px 10px 30px ;
+                background: -webkit-radial-gradient(ellipse,white,cyan);
+                display: flex;
+            }
+        
+            #first{
+                width: 48%;
+                height: 550px;
+                border: 5px solid black;
+                border-radius: 10px;
+                padding: 2px;
+                margin: 20px auto;
+                overflow: auto;
+                resize: both;
+                -webkit-column-count:3;
+                -webkit-column-rule:2px dashed red;
+                background: -webkit-radial-gradient(ellipse,white,rgb(66, 241, 66));
+                float: left;
+                text-align: center;
+                text-decoration: underline;
+            }
+            mark{
+                background-color: red;
+                text-decoration: underline;
+                ;
+        
+            }
+            mark:hover {
+                color: rgb(248, 248, 0);    
+                transition: 1s;
+                animation-direction:alternate-reverse;
+            }
+            mark:active {
+                transition: 5s;
+                animation-direction:alternate-reverse;
+                box-sizing: border-box;
+                background: -webkit-radial-gradient(ellipse,white, rgb(248, 248, 0));
+            }
+        
+            #second{
+                width: 49%;
+                height: 550px;
+                border: 5px solid blue;
+                border-radius: 10px;
+                padding: 2px;
+                margin: 20px auto;
+                overflow: auto;
+                resize: both;
+                float: left;
+                margin-left: 20px;
+            }
+            #mainwrapper:hover{
+                transition: 3s;
+                transform:skew(20deg) ;
+                border-radius:0;
+            }
+            #mainwrapper:active {
+                transform: scale(0.5) rotate(360deg);
+            }
+            img:hover{
+                transition: 2s;
+                transform:scale(1.2) ;
+                border-radius:0;
+            }
+                img:active {
+                    transform: scale(3) rotate(360deg);
+                    
+                }
+            img{
+                    width:100px;
+                    height:100px;
+                    margin:10px;
+                    border: 3px solid blue;
+            }
+            
+            
+        }
+        
+        @media all and ( orientation : portrait) {
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+        
+            
+        
+            #mainwrapper {
+                width: 80%;
+                height: 600px;
+                border: 2px solid  rgb(248, 248, 0);
+                padding: 5px;
+                margin: 10px auto;
+                border-radius: 20px;
+                box-sizing: border-box;
+                box-shadow: #bd79fc 10px 10px 30px ;
+                background: -webkit-radial-gradient(ellipse,rgb(199, 199, 199),rgb(66, 241, 66));
+        
+            }
+        
+            #first{
+                width: 40%;
+                height: 550px;
+                border: 5px solid black;
+                border-radius: 10px;
+                padding: 2px;
+                margin: 20px auto;
+                overflow: auto;
+                resize: both;
+                -webkit-column-count:3;
+                -webkit-column-rule:2px dashed red;
+                background: -webkit-radial-gradient(ellipse,rgb(199, 199, 199),rgb(66, 241, 66));
+                float: left;
+                text-align: center;
+                
+            }
+            mark{
+                background-color: red;
+                text-decoration: underline;
+                ;
+        
+            }
+            mark:hover {
+                transition: 1s;
+                color:  rgb(248, 248, 0)w;    
+                animation-direction:alternate-reverse;
+            }
+            mark:active {
+                transition: 2s;
+                animation-direction:alternate-reverse;
+                box-sizing: border-box;
+                background: -webkit-radial-gradient(ellipse,rgb(199, 199, 199), rgb(248, 248, 0));
+            }
+        
+            #second{
+                width: 40%;
+                height: 550px;
+                border: 5px solid blue;
+                border-radius: 10px;
+                padding: 2px;
+                margin: 20px auto;
+                overflow: auto;
+                resize: both;
+                float: left;
+                margin-left: 20px;
+            }
+            #mainwrapper:hover{
+                transition: 1s;
+                border-radius:0;
+            }
+            
+            img:hover{
+                transition: 1s;
+                transform:scale(1.2) ;
+                border-radius:0;
+            }
+                img:active {
+                    border: 2px dashed red;            
+                }
+            img{
+                    width:100px;
+                    height:100px;
+                    margin:10px;
+                    border: 3px solid blue;
+                    transform: rotate(45deg);
+                    transition: 2s;
+            }
+            
+        
+        }

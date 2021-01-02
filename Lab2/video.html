@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 2</title>
+    <link href="video.css" rel="stylesheet" /> 
+    <script>
+
+        window.addEventListener('load', function () {
+           
+        var allbtns = document.getElementsByTagName('input');
+        for(var i = 0; i < allbtns.length; i++){
+            allbtns[i].addEventListener("click", dosomething);
+        }         
+        var arr = ["ww.mp4", "Intro.mp4", "ww.mp4", "Intro.mp4", "ww.mp4", 
+        "Intro.mp4", "ww.mp4", "Intro.mp4", "ww.mp4", "Intro.mp4"];
+        function dosomething(e){
+           myvideo.src = arr[e.target.id];
+        }
+            // get video element
+            myvideo = document.getElementById('myvid');
+            
+        });//load end
+        
+        function playpausefun() {
+            // 
+            if (myvideo.paused) {
+                myvideo.play();
+                myvideo.value = "Pause";
+            } else {
+                myvideo.pause();
+                myvideo.value = "Play";
+            }
+        }
+        
+        function fullscreen(){
+            myvid.webkitRequestFullScreen();
+        }
+
+        
+    </script>
+
+</head>
+<body>
+    <div id="mainwrapper">
+        <section id="first">
+            <input type="button" value="Video 1" id="0">
+            <input type="button" value="Video 2" id="1">
+            <input type="button" value="Video 3" id="2">
+            <input type="button" value="Video 4" id="3">
+            <input type="button" value="Video 5" id="4">
+            <input type="button" value="Video 6" id="5">
+            <input type="button" value="Video 7" id="6">
+            <input type="button" value="Video 8" id="7">
+            <input type="button" value="Video 9" id="8">
+            <input type="button" value="Video 10" id="9"> 
+        </section>
+<section id="second">
+    <video src="ww.mp4" id="myvid" onclick="playpausefun();" ondblclick="fullscreen();"/>
+</section>
+    </div>
+</body>
+</html>

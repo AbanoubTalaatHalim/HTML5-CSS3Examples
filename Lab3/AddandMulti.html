@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="AddandMulti.css" rel="stylesheet" /> 
+        <script>
+            window.addEventListener('load', function () {
+                sumresult =document.getElementById('sumresult');
+                multresult =document.getElementById('multiresult');
+            });
+            function sumfunc(){
+                sumnum1 =document.getElementById('Addnum1').value;
+                sumnum2 =document.getElementById('Addnum2').value;
+                var num1=parseInt(sumnum1);
+                var num2=parseInt(sumnum2);
+                summing =num1 + num2 ;
+                sumresult.innerHTML = summing;
+            }
+            function multifunc(){
+                multnum1 =document.getElementById('Multnum1').value;
+                multnum2 =document.getElementById('Multnum2').value;
+                var num1=parseInt(multnum1);
+                var num2=parseInt(multnum2);
+                multipling = multnum1 * multnum2;
+                multresult.innerHTML = multipling;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="mainwrapper">
+            <section id="left">
+                <h1>Addition</h1>
+                <input type="number"  id="Addnum1" value="0" min="0" onchange="sumfunc()">
+                <span>+</span>
+                <input type="number" id="Addnum2" value="0" min="0" onchange="sumfunc()">
+                <span>=</span>
+                <span id="sumresult"></span>
+                </section>
+            <section id="right">
+                <h1>Multiplication</h1>
+                <input type="number"  id="Multnum1" value="0" min="0" onchange="multifunc()">
+                <span>*</span>
+                <input type="number" id="Multnum2" value="0" min="0" onchange="multifunc()">
+                <span>=</span>
+                <span id="multiresult"></span>
+                </section>
+        </div>
+    </body>
+    </html>

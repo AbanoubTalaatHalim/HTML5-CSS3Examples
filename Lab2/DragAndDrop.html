@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 2</title>
+    <link href="DragAndDrop.css" rel="stylesheet" /> 
+    <script>
+
+        window.addEventListener('load', function () {
+        
+            allimages = document.querySelectorAll('.image');
+
+            for (var i = 0; i < allimages.length; i++) {
+                allimages[i].addEventListener('dragstart', startdrag);
+                allimages[i].addEventListener('dragend', enddrag);
+            }
+            
+            top = document.getElementById('top');
+            top.addEventListener('dragleave', leavedrag);
+            bottom = document.getElementById('bottom');
+            bottom.addEventListener('drop', dropped);
+            bottom.addEventListener('dragover', overdrag);
+            bottom.addEventListener('dragenter', enterdrag);
+            main = document.getElementById("mainwrapper");
+            P = document.getElementById("par");
+           counter=0;
+
+        });//end of load
+
+        function count(){
+            if (counter == allimages.length){
+                P.style.display = "block";
+                P.style.textAlign = "center";
+            }
+        }
+        
+        function startdrag(e) {
+            //e.preventDefault();
+        e.dataTransfer.setData("myimg",   e.target.outerHTML);
+        }
+        function leavedrag(e) {
+            e.preventDefault();
+        }
+        function dropped(e) {
+            e.preventDefault();
+            bottom.innerHTML += e.dataTransfer.getData('myimg');
+            
+            counter++;
+            count();
+           
+           // console.log(e.target.style.border);
+        }
+
+        function enddrag(e) {
+            e.preventDefault();
+            e.target.style.display = 'none';
+        }
+        function overdrag(e) {
+            e.preventDefault();
+            bottom.style.backgroundColor = 'pink';
+        }
+        function enterdrag(e) {
+            e.preventDefault();
+        }
+    </script>
+
+
+</head>
+<body>
+    <div id="mainwrapper">
+        <section id="top">
+            <p id="par">EMPTY</p>
+            <img class="image" src="1.jpg" />
+            <img class="image" src="2.jpg" />
+            <img class="image" src="3.jpg" />
+            <img class="image" src="4.jpg" />
+            <img class="image" src="5.jpg" />
+        </section>
+<section id="bottom">
+    
+</section>
+    </div>
+</body>
+</html>

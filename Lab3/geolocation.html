@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 2</title>
+    <link href="geolocation.css" rel="stylesheet" /> 
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
+
+<script>
+        window.addEventListener('load', function () {
+            myinfo = document.getElementById("information");
+            mymap = document.getElementById("bottom");
+        });
+
+        function displayMap() {
+            mymap.setAttribute("id", "bottom");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(getposition, errorhandeler);
+            } else {
+                mymap.innerText = "Your Browser Not Support Geolocation , Update And Try Again !";
+            }
+        }
+
+        function getposition(position) {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+            acc = position.coords.accuracy;
+            myDate= new Date(position.timestamp);
+            stamp = myDate.toLocaleString("en-EG");
+            var mylocation = new google.maps.LatLng(lat, lon);
+            var myspecs = { zoom: 17, center: mylocation };
+            var myimg = new Image();
+            myimg.src = new google.maps.Map(mymap, myspecs);
+            mymap.appendChild(myimg);
+        }
+
+        function errorhandeler(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    mymap.innerText = 'PERMISSION_DENIED';
+                    break;
+                case error.POSITION_UNAVAILABBLE:
+                    mymap.innerText = 'POSITION_UNAVAIBLE';
+                    break;
+                case error.TIMEOUT:
+                    mymap.innerText = 'TIMEOUT';
+                    break;
+                case error.UNKOWN_ERROR:
+                    mymap.innerText = 'UNKOWN_ERROR';
+                    break;
+            }
+        }
+
+        function detailedInfo(e) {
+       
+            if (navigator.geolocation) {
+                mymap.setAttribute("id", "info");
+                mymap.innerText = "Latitude (degree) \n" + lat + "\n\nLongitude (degree) \n" + lon ;
+                mymap.innerText += "\n\nAccuracy (m) \n" + acc ;
+                mymap.innerText += "\n\nTimestamp (Current Time and Date)  \n" + stamp + '\n';
+            } else {
+                mymap.innerText = "Your Browser Not Support Geolocation , Update And Try Again !";
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="mainwrapper">
+        <section id="top">
+            <input type="button" value="Display Map" onclick="displayMap()"/>
+            <input type="button" value="Detailed Information" onclick="detailedInfo()"/>
+        </section>
+        <div id="bottom">
+            
+        </div>
+    </div>
+</body>
+</html>

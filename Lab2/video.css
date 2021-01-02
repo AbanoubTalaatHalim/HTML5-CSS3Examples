@@ -1,0 +1,69 @@
+@media all and ( orientation : landscape) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+
+    
+    #mainwrapper {
+        width: 80%;
+        height: 600px;
+        border: 2px solid black;
+        padding: 5px;
+        margin: 10px auto;
+        border-radius: 20px;
+        box-sizing: border-box;
+        box-shadow: #bd79fc 10px 10px 30px ;
+        background: -webkit-radial-gradient(ellipse,white,lightgreen);
+        display: flex;
+    }
+    #first{
+        width: 20%;
+        height: 550px;
+        border: 5px solid black;
+        border-radius: 20px;
+        padding: 2px;
+        margin: 20px auto;
+        overflow: auto;
+        resize: both;
+        background: -webkit-radial-gradient(ellipse,white,rgb(66, 241, 66));
+        float: left;
+        display: inline-block;
+        text-align: center;
+        margin-left: 20px;
+    }
+input {
+    border-radius: 10px;
+    background-color: lightcyan;
+    margin: 5px;
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+}
+input:hover{
+    transform: scale(1.2) rotate(360deg);
+    transition: 0.8s;
+}
+
+    #second{
+        width: 78%;
+        height: 550px;
+        border: 5px solid black;
+        border-radius: 20px;
+        padding: 2px;
+        margin: 20px auto;
+        overflow: auto;
+        resize: both;
+        float: left;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+video{
+    height: 98%;
+    width: 100%;
+    object-fit: fill;
+}
+}
